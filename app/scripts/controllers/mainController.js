@@ -2,12 +2,13 @@ angular.module('ethExplorer')
     .controller('mainCtrl', async function ($rootScope, $scope, $location,blockService) {
 
 	var web3 = $rootScope.web3;
-	var maxBlocks = 20; // TODO: into setting file or user select
+	var maxBlocks = 10; // TODO: into setting file or user select
 	var blockNum = $scope.blockNum = parseInt(web3.eth.blockNumber, 10);
 	if (maxBlocks > blockNum) {
 	    maxBlocks = blockNum + 1;
 	}
 
+  $scope.averageTime=await blockService.getBlockTime();
 	// get latest 20 blocks
 	$scope.blocks = [];
 	for (var i = 0; i < maxBlocks; ++i) {

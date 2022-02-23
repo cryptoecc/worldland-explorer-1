@@ -17,6 +17,7 @@ angular.module('ethExplorer')
             }
             return Math.round(times.reduce((a, b) => a + b) / times.length)
         };
+        
         this.getBlock= async function(Id){
             if(Id!==undefined) {
                 result = await web3.eth.getBlock(Id);

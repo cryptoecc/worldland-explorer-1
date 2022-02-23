@@ -4,14 +4,16 @@
 	<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
 		<tbody>
 	  <tr>
-		<td>block average time</td>
-		<td>{{averageTime}} second</td>
+		<td><h3>block average time</h3></td>
+		<td><h3>{{averageTime}} second</h3></td>
 	  </tr>
 		</tbody>
 	</table>
   
-	<h3 class="mr-40" style="color: #449D44;text-align:center;">Latest Blocks</h3>
-	
+	<h3 style="margin-top: 50px;">
+		<a style="margin-top: 50px;" href="/#/block/{{blockNum}}">Latest Block: {{blockNum}}</a>
+	</h3>
+
     <table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" style="padding:0px;float:left;margin:0px;width:100%">
       <tbody>
 	<tr>
@@ -28,14 +30,6 @@
 	  <td>{{i.size}}</td>
 	  <td>{{i.time}}</td>
     </tr>
-		
       </tbody>
     </table>
-
-   
-	<h1></h1>
-	<h4 style="margin-top: 50px;">
-		<a style="margin-top: 50px;" href="/#/block/{{blockNum}}">Latest Block: {{blockNum}}</a>
-	</h4>
-
 </div>

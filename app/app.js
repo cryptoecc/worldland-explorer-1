@@ -1,7 +1,5 @@
 'use strict';
-
 angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
-
 .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -25,19 +23,20 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
                 redirectTo: '/'
             });
     }])
-    .run(function($rootScope) {
-        var web3 = new Web3();
+    .run(['$rootScope', function($rootScope) {
         var eth_node_url = 'http://3.36.252.183:8545'; // TODO: remote URL
-	web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
+        var web3 = new Web3(eth_node_url);
         $rootScope.web3 = web3;
+        /*
         function sleepFor( sleepDuration ){
             var now = new Date().getTime();
-            while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+            while(new Date().getTime() < now + sleepDuration){ /* do nothing  } 
         }
         var connected = false;
-        if(!web3.isConnected()) {
+        
+        if(!web3.eth.net.isListening()) {
             $('#connectwarning').modal({keyboard:false,backdrop:'static'}) 
             $('#connectwarning').modal('show') 
-        }
-    });
+        }*/
+    }]);
 

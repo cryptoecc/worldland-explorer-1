@@ -1,12 +1,11 @@
 angular.module('ethExplorer')
     .service('blockService', function($rootScope) {
 		const web3 = $rootScope.web3;
-        const number = web3.eth.blockNumber;
-        var result;
         this.getBlockTime= async function(){
+            const number = await web3.eth.getBlockNumber();
             const span = 10
             const times = []
-            const firstBlock = await web3.eth.getBlock(number - span)
+            const firstBlock = await web3.eth.getBlock(number-span)
             let prevTimestamp = firstBlock.timestamp
             
             for (let i = number - span + 1; i <= number; i++) {
@@ -17,8 +16,9 @@ angular.module('ethExplorer')
             }
             return Math.round(times.reduce((a, b) => a + b) / times.length)
         };
-        
+
         this.getBlock= async function(Id){
+            const number = await web3.eth.getBlockNumber();
             if(Id!==undefined) {
                 result = await web3.eth.getBlock(Id);
 

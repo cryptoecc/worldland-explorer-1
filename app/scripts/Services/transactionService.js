@@ -1,9 +1,8 @@
 angular.module('ethExplorer')
-    .service('transactionService', function($rootScope,blockService) {
+    .service('transactionService', ['$rootScope', 'blockService', function($rootScope,blockService) {
 		var web3 = $rootScope.web3;
-        var number = web3.eth.blockNumber;
-        var result;
         this.getTransaction = async function(txId){
+            var number = web3.eth.getBlockNumber();
             if(txId!==undefined) { // add a test to check if it match tx paterns to avoid useless API call, clients are not obliged to come from the search form...
                 result = await web3.eth.getTransaction(txId);
                 result.txId=txId;
@@ -13,8 +12,10 @@ angular.module('ethExplorer')
                 if(result.blockNumber==undefined){
                     result.blockNumber ='pending';
                 }
-                result.gasPrice = result.gasPrice.c[0] + " WEI";
-                result.ethValue = result.value.c[0] / 10000; 
+                /////////////////////
+                //result.ethValue = result.value.c[0] / 10000; 
+                result.dataFromHex = result.input.toString(16);
+                //console.log(result.input)
                 result.txprice = (result.gas * result.gasPrice)/1000000000000000000 + " ETH";
                 if(result.blockNumber!==undefined){
                     result.conf = number - result.blockNumber;
@@ -41,4 +42,4 @@ angular.module('ethExplorer')
             return await web3.eth.getTransactionFromBlock(blockId, blockIdx);
         };
     }
-);
+]);

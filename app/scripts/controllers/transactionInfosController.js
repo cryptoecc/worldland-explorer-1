@@ -1,6 +1,6 @@
 angular.module('ethExplorer')
-    .controller('transactionInfosCtrl', async function ($scope,$routeParams,transactionService) {
+    .controller('transactionInfosCtrl', ['$scope','$routeParams','transactionService', async function ($scope,$routeParams,transactionService) {
 
-       $scope.tx= await transactionService.getTransaction($routeParams.transactionId);
-
-    });
+      $scope= await transactionService.getTransaction($routeParams.transactionId);
+      $scope.$apply();
+    }]);

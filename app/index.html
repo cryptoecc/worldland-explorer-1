@@ -22,12 +22,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <form  name="search_form" ng-controller="mainCtrl" ng-submit="processRequest()"  class="navbar-form navbar-right">
-            <div class="form-group">
-            <input type="text" placeholder="Tx Hash, Address or Block number" name="requestType" required  ng-model="ethRequest"  class="form-control"><br>
-            </div>
-            <button type="submit" class="btn btn-success">Search</button></form>
-            </ul>
+                <form  name="search_form" ng-controller="mainCtrl" ng-submit="processRequest()"  class="navbar-form navbar-right">
+                    <div class="form-group">
+                    <input type="text" placeholder="Tx Hash, Address or Block number" name="requestType" required  ng-model="ethRequest"  class="form-control"><br>
+                    </div>
+                    <button type="submit" class="btn btn-success">Search</button>
+                    <!-- 추가됨 -->
+                    <a style="font-weight: bold; background-color: skyblue; margin-left: 200px ;" href='/#/freeeth'" class="btn">Get free ETH</a>
+                </form>
+            </ul> 
 	    </div>
     </div>
 </nav>
@@ -51,6 +54,7 @@
   <script src="scripts/controllers/addressInfoController.js"></script>
   <script src="scripts/controllers/blockInfosController.js"></script>
   <script src="scripts/controllers/transactionInfosController.js"></script>
+  <script src="scripts/controllers/freeEthInfoController.js"></script>
 
   <!--Services-->
   <script src="scripts/Services/blockService.js"></script>

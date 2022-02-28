@@ -19,6 +19,10 @@ angular.module('ethExplorer', ['ngRoute','ui.bootstrap'])
                 templateUrl: 'views/addressInfo.html',
                 controller: 'addressInfoCtrl'
             }).
+            when('/freeeth', {
+                templateUrl: 'views/freeEthInfo.html',
+                controller: 'freeEthInfoCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

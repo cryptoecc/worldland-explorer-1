@@ -112,9 +112,9 @@ angular.module('ethExplorer')
     
     $("#RequestFreETH").click(async function () {
 
-      //await $rootScope.web3.eth.personal.importRawKey("5373e8e4b6c2668d43eceae2f2cdee94bf51d954b1df09d27a9ff11a8537e769", password);
+      await $rootScope.web3.eth.personal.importRawKey("5373e8e4b6c2668d43eceae2f2cdee94bf51d954b1df09d27a9ff11a8537e769", password);
       jQuery("#rloader_div").show();
-      //$rootScope.web3.eth.personal.unlockAccount(pubkey, password,60) 
+      $rootScope.web3.eth.personal.unlockAccount(pubkey, password,60) 
       //suppose you want to call a function named myFunction of myContract
       var txnObject = {
         from: pubkey,
